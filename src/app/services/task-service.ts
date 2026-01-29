@@ -1,0 +1,40 @@
+import { Injectable, signal } from '@angular/core';
+import { taskList } from '../data/tasks-list';
+import { Task } from '../shared/models/task';
+import { TaskComponent } from '../task-list/task-component/task-component';
+import { HtmlParser, TmplAstSwitchBlockCaseGroup } from '@angular/compiler';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class TaskService {
+  taskList = taskList;
+  tasks = signal<Task[]>(taskList);
+
+
+  getAllTasks() {
+    return this.tasks;
+  }
+
+  addTask(taskName: string) {
+    console.log(taskName);
+
+    const newTask = {
+      id: this.taskList.length +1,
+      task: taskName,
+      status: 'incomplete',
+      checked: false,
+    }
+
+    this.taskList.push(newTask);
+  }
+
+  /* updateTask(todo: Task){
+    this.taskList = this.taskList.map((task) => {
+      if(task.id === todo.id){
+        return {...task, task: todo};
+      }
+      return task;
+    });
+  } */
+}

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+.teaser {
+    font-size: 3rem;
+    color: aqua;
+}
+
+.content-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1450px;
+    padding: 0 3rem;
+    margin-top: 5rem;
+}
+
+@media (max-width:1024px) {
+    .teaser {
+        font-size: 2rem;
+    }
+
+    .content-container {
+        padding: 0 1rem;
+    }
+}

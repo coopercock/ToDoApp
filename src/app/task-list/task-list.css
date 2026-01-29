@@ -1,0 +1,71 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-group {
+    width: 100%;
+    background-color: rgb(0, 102, 255);
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.task-checkbox {
+    appearance: none; /* Check-Eigenschaft wird entfernt */
+    margin: 1rem;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(133, 133, 133, 0.493);
+    border-radius: 0.25rem;
+    margin-right: 1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.task-checkbox:checked {
+    content: "";
+}
+
+.task-checkbox:checked::after {
+    content: "✔";
+    position: absolute;
+    top: -20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 1.3rem;
+    color: #ac25fb;
+}
+
+.task-text {
+    min-width: 300px;
+    font-size: 1.3rem;
+    margin: 1rem;
+}
+
+.status {
+    min-width: 300px;
+    font-size: 1.3rem;
+    margin: 1rem;
+}
+
+@media (max-width:792px) {
+    .status {
+        display: none;
+    }
+}
+
+@media (max-width:480px) {
+    .task-text {
+        width: 200px;
+        min-width: unset;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
