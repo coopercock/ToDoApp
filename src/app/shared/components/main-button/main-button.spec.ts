@@ -14,7 +14,7 @@ describe('MainButton', () => {
 
     fixture = TestBed.createComponent(MainButton);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

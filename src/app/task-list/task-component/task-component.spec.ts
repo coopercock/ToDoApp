@@ -14,7 +14,7 @@ describe('TaskComponent', () => {
 
     fixture = TestBed.createComponent(TaskComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

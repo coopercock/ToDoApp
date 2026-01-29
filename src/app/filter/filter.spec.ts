@@ -14,7 +14,7 @@ describe('Filter', () => {
 
     fixture = TestBed.createComponent(Filter);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
