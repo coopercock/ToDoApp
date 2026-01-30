@@ -8,8 +8,10 @@ import { Task } from '../shared/models/task';
 export class TaskService {
   taskList = taskList;
   tasks = signal<Task[]>(taskList);
+  
 
   getAllTasks() {
+    this.tasks.set(this.taskList);
     return this.tasks;
   }
 
@@ -22,5 +24,28 @@ export class TaskService {
     };
 
     this.taskList.push(newTask);
+  }
+
+  updateTask(todo: Task) {
+    this.taskList = this.taskList.map((task) => {
+      if (task.id === todo.id) {
+        return { ...task, ...todo };
+      }
+      return task;
+    });
+  }
+
+  filterCompleteTasks() {
+    const completedTasks = this.taskList = this.taskList.filter(
+      (task) => task.status === 'completed'
+    );
+    this.tasks.set(completedTasks);
+  }
+
+  filterIncompleteTasks() {
+    const incompletedTasks = this.taskList.filter(
+      (task) => task.status === 'incomplete'
+    );
+    this.tasks.set(incompletedTasks);
   }
 }
